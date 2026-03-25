@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QCBWCJJKX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3QCBWCJJKX');
+  </script>
+  
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Explaining CLIP Zero-shot Predictions Through Concepts (EZPC)">
+  <meta name="keywords" content="CLIP, Zero-shot, Explainability, Concepts, XAI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EZPC: Explaining CLIP Zero-shot Predictions Through Concepts</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Explaining CLIP Zero-shot Predictions Through Concepts (EZPC)</h1>
+          <h1 class="title is-4 publication-title">CVPR 2026</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Onat Ozdemir<sup>1,2</sup>,</span>
+            <span class="author-block">
+              Anders Christensen<sup>3,4,5</sup>,</span>
+            <span class="author-block">
+              Stephan Alaniz<sup>6</sup>,</span>
+            <span class="author-block">
+              Zeynep Akata<sup>7,8,9,10</sup>,</span>
+            <span class="author-block">
+              Emre Akbas<sup>2,8,11</sup>
+            </span>
+          </div>
+
+          <div class="publication-authors publication-institutions">
+            <span class="author-block"><sup>1</sup>University of Edinburgh,</span>
+            <span class="author-block"><sup>2</sup>Middle East Technical University (METU),</span>
+            <span class="author-block"><sup>3</sup>Orbital,</span>
+            <span class="author-block"><sup>4</sup>Technical University of Denmark,</span>
+            <span class="author-block"><sup>5</sup>University of Copenhagen ,</span>
+            <span class="author-block"><sup>6</sup>Télécom Paris,</span>
+            <span class="author-block"><sup>7</sup>Technical University of Munich,</span>
+            <span class="author-block"><sup>8</sup>Helmholtz Munich,</span>
+            <span class="author-block"><sup>9</sup>MCML,</span>
+            <span class="author-block"><sup>10</sup>MDSI,</span>
+            <span class="author-block"><sup>11</sup>ROMER, METU</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/oonat/ezpc"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- TODO: Replace with your teaser figure -->
+      <img src="./static/images/EZPC_overview.png" alt="EZPC method overview" width="100%">
+      <h2 class="subtitle has-text-centered" style="margin-top: 2rem;">
+        <span class="dnerf">EZPC</span> explains CLIP zero-shot predictions by projecting image and text embeddings
+        into a shared concept space, enabling concept-wise interpretability of classification decisions.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Large-scale vision-language models such as CLIP have achieved remarkable success in zero-shot image recognition, yet their predictions remain largely opaque to human understanding. In contrast, Concept Bottleneck Models provide interpretable intermediate representations by reasoning through human-defined concepts, but they rely on concept supervision and lack the ability to generalize to unseen classes.
+          </p>
+          <p>
+            We introduce <b>EZPC (pronounced "easy-peasy")</b> that bridges these two paradigms by <b>explaining CLIP’s zero-shot predictions through human-understandable concepts</b>. Our method projects CLIP’s joint image-text embeddings into a concept space learned from language descriptions, enabling faithful and transparent explanations without additional supervision. The model learns this projection via a combination of alignment and reconstruction objectives, ensuring that concept activations preserve CLIP’s semantic structure while remaining interpretable.
+          </p>
+          <p>
+            Extensive experiments on five benchmark datasets, <b>CIFAR-100, CUB-200-2011, Places365, ImageNet-100, and ImageNet-1k</b>, demonstrate that our approach maintains CLIP’s strong zero-shot classification accuracy while providing meaningful concept-level explanations. By grounding open-vocabulary predictions in explicit semantic concepts, our method offers a principled step toward interpretable and trustworthy vision-language models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Quantitative Results</h2>
+        <p class="has-text-justified" style="margin-bottom: 3rem;">
+        We evaluate EZPC on five benchmark datasets (CIFAR-100, ImageNet-100, CUB, ImageNet-1k, and Places365)
+        under the generalized zero-shot setting. 
+        EZPC maintains strong performance close to CLIP while providing concept-level explanations, 
+        and outperforms prior explainable zero-shot methods such as Z-CBM and SpLiCE.
+        These results show that projecting CLIP embeddings into a concept space preserves semantic structure
+        without sacrificing accuracy.
+        </p>
+
+        <div class="table-wrapper" style="display: flex; justify-content: center; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th rowspan="2">Model</th>
+                <th colspan="3">CIFAR-100</th>
+                <th colspan="3" class="group-sep">ImageNet-100</th>
+                <th colspan="3" class="group-sep">CUB</th>
+                <th colspan="3" class="group-sep">ImageNet-1k</th>
+                <th colspan="3" class="group-sep">Places365</th>
+              </tr>
+              <tr>
+                <th>Seen</th><th>Unseen</th><th>H</th>
+                <th class="group-sep">Seen</th><th>Unseen</th><th>H</th>
+                <th class="group-sep">Seen</th><th>Unseen</th><th>H</th>
+                <th class="group-sep">Seen</th><th>Unseen</th><th>H</th>
+                <th class="group-sep">Seen</th><th>Unseen</th><th>H</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="baseline-sep">
+                <td><a href="https://arxiv.org/abs/2103.00020" target="_blank">CLIP</a></span></td>
+                <td>0.370</td><td>0.454</td><td>0.408</td>
+                <td class="group-sep">0.680</td><td>0.707</td><td>0.693</td>
+                <td class="group-sep">0.468</td><td>0.481</td><td>0.474</td>
+                <td class="group-sep">0.513</td><td>0.548</td><td>0.530</td>
+                <td class="group-sep">0.350</td><td>0.375</td><td>0.362</td>
+              </tr>
+              <tr>
+                <td><a href="https://arxiv.org/abs/2502.09018v1" target="_blank">Z-CBM</a></span></td>
+                <td>0.319</td><td>0.425</td><td>0.365</td>
+                <td class="group-sep">0.592</td><td>0.579</td><td>0.585</td>
+                <td class="group-sep">0.183</td><td>0.195</td><td>0.189</td>
+                <td class="group-sep">0.439</td><td>0.486</td><td>0.462</td>
+                <td class="group-sep best">0.349</td><td>0.365</td><td class="best">0.357</td>
+              </tr>
+              <tr>
+                <td><a href="https://arxiv.org/abs/2402.10376" target="_blank">SpLiCE</a></span></td>
+                <td>0.248</td><td>0.298</td><td>0.270</td>
+                <td class="group-sep">0.371</td><td>0.409</td><td>0.389</td>
+                <td class="group-sep">0.100</td><td>0.053</td><td>0.070</td>
+                <td class="group-sep">0.275</td><td>0.331</td><td>0.300</td>
+                <td class="group-sep">0.276</td><td>0.288</td><td>0.282</td>
+              </tr>
+              <tr class="highlight">
+                <td>EZPC</td>
+                <td class="best">0.365</td><td class="best">0.449</td><td class="best">0.403</td>
+                <td class="group-sep best">0.675</td><td class="best">0.690</td><td class="best">0.682</td>
+                <td class="group-sep best">0.457</td><td class="best">0.473</td><td class="best">0.465</td>
+                <td class="group-sep best">0.468</td><td class="best">0.494</td><td class="best">0.481</td>
+                <td class="group-sep">0.339</td><td class="best">0.366</td><td>0.352</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="table-caption"><strong>Table 1.</strong> Generalized zero-shot classification accuracy (Seen, Unseen, Harmonic mean). EZPC achieves performance close to CLIP while remaining interpretable.</p>
+      </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-12">
+        <h2 class="title is-3">Qualitative Results</h2>
+
+        <p class="has-text-justified" style="margin-bottom: 3rem;">
+        We present qualitative examples illustrating the interpretability of EZPC. The visualizations illustrate explanations for individual predictions, class-level concept statistics, and the structure of the learned concept space. These results demonstrate that EZPC provides faithful and human-understandable explanations while preserving the semantic behavior of CLIP.
+        </p>
+
+        <!-- Image carousel 1-->
+            <div class="container">
+              <div id="results-carousel" class="carousel results-carousel">
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/img_level1.png" alt="Image-level Analysis"/>
+              </div>
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/img_level2.png" alt="Image-level Analysis"/>
+              </div>
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/img_level3.png" alt="Image-level Analysis"/>
+              </div>
+            </div>
+          </div>
+        <!-- End image carousel 1-->
+        <p class="has-text-centered" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+        <b>Figure 1.</b> Image-level explanations showing the most contributing concepts for each prediction.
+        </p>
+
+        <hr>
+
+        <!-- Image carousel 2-->
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/class_level1.png" alt="Class-level Analysis"/>
+              </div>
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/class_level2.png" alt="Class-level Analysis"/>
+              </div>
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/class_level3.png" alt="Class-level Analysis"/>
+              </div>
+            </div>
+          </div>
+        <!-- End image carousel 2-->
+        <p class="has-text-centered" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+        <b>Figure 2.</b> Class-level concept distributions across multiple samples.
+        </p>
+
+        <hr>
+
+        <!-- Image carousel 3-->
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/clustering1.png" alt="Concept Clustering"/>
+              </div>
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/clustering2.png" alt="Concept Clustering"/>
+              </div>
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/clustering3.png" alt="Concept Clustering"/>
+              </div>
+            </div>
+          </div>
+        <!-- End image carousel 3-->
+        <p class="has-text-centered" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+        <b>Figure 3.</b> Concept clustering in the learned concept space, showing semantic grouping without image supervision.
+        </p>
+                    
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Acknowledgments</h2>
+        <div class="content has-text-justified">
+          <p>
+            We acknowledge the computational resources provided by METU Center for Robotics and Artificial Intelligence (METU-ROMER) and TUBITAK ULAKBIM TRUBA. Dr. Alaniz is supported by Hi! PARIS and ANR/France 2030 program (ANR-23-IACL-0005). Dr. Akata acknowledges partial funding by the ERC (853489 - DEXIM) and the Alfried Krupp von Bohlen und Halbach Foundation. Dr. Akbas gratefully acknowledges the support of TUBITAK 2219.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{ozdemir2026ezpc,
+  title     = {Explaining CLIP Zero-shot Predictions Through Concepts},
+  author    = {Ozdemir, Onat and Christensen, Anders and Alaniz, Stephan and Akata, Zeynep and Akbas, Emre},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+        <p>
+     		  This website is modified from <a href="https://github.com/nerfies/nerfies.github.io"> Nerfies</a>. 
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var carousels = bulmaCarousel.attach('#results-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    loop: true,
+    autoplay: false,
+    navigation: true,
+    pagination: true,
+  });
+});
+</script>
+
+</body>
+</html>
