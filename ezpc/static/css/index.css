@@ -251,3 +251,9 @@ body {
     padding: 0.3rem 0.25rem;
   }
 }
+
+.u-grey {
+  text-decoration: underline;
+  text-decoration-color: #999;   /* grey underline */
+  text-underline-offset: 3px;    /* moves underline slightly down */
+}
