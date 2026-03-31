@@ -76,10 +76,12 @@ body {
 }
 
 .results-table {
+  margin: 0 auto;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   font-size: 0.82rem;
+  background-color: rgba(255,255,255,0.3);
   line-height: 1.5;
 }
 
