@@ -9,7 +9,7 @@
 
     gtag('config', 'G-3QCBWCJJKX');
   </script>
-  
+
   <meta charset="utf-8">
   <meta name="description"
         content="Explaining CLIP Zero-shot Predictions Through Concepts (EZPC)">
@@ -44,23 +44,23 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            <span class="u-grey">E</span>xplaining CLIP 
-            <span class="u-grey">Z</span>ero-shot 
-            <span class="u-grey">P</span>redictions Through 
+            <span class="u-grey">E</span>xplaining CLIP
+            <span class="u-grey">Z</span>ero-shot
+            <span class="u-grey">P</span>redictions Through
             <span class="u-grey">C</span>oncepts
           </h1>
           <h1 class="title is-4 publication-title">CVPR 2026</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              Onat Ozdemir<sup>1,2</sup>,</span>
+              <a href="https://oonat.github.io/">Onat Ozdemir</a><sup>1,2</sup>,</span>
             <span class="author-block">
-              Anders Christensen<sup>3,4,5</sup>,</span>
+              <a href="https://scholar.google.com/citations?user=z7WhDRIAAAAJ">Anders Christensen</a><sup>3,4,5</sup>,</span>
             <span class="author-block">
-              Stephan Alaniz<sup>6</sup>,</span>
+              <a href="https://scholar.google.com/citations?user=mzZa_yQAAAAJ">Stephan Alaniz</a><sup>6</sup>,</span>
             <span class="author-block">
-              Zeynep Akata<sup>7,8,9,10</sup>,</span>
+              <a href="https://www.helmholtz-munich.de/en/eml/zeynep-akata">Zeynep Akata</a><sup>7,8,9,10</sup>,</span>
             <span class="author-block">
-              Emre Akbas<sup>2,8,11</sup>
+              <a href="https://user.ceng.metu.edu.tr/~emre/">Emre Akbas</a><sup>2,8,11</sup>
             </span>
           </div>
 
@@ -69,8 +69,8 @@
             <span class="author-block"><sup>2</sup>Middle East Technical University (METU),</span>
             <span class="author-block"><sup>3</sup>Orbital,</span>
             <span class="author-block"><sup>4</sup>Technical University of Denmark,</span>
-            <span class="author-block"><sup>5</sup>University of Copenhagen ,</span>
-            <span class="author-block"><sup>6</sup>Télécom Paris,</span>
+            <span class="author-block"><sup>5</sup>University of Copenhagen,</span>
+            <span class="author-block"><sup>6</sup>Telecom Paris,</span>
             <span class="author-block"><sup>7</sup>Technical University of Munich,</span>
             <span class="author-block"><sup>8</sup>Helmholtz Munich,</span>
             <span class="author-block"><sup>9</sup>MCML,</span>
@@ -109,11 +109,10 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: Replace with your teaser figure -->
       <img src="./static/images/EZPC_overview.png" alt="EZPC method overview" width="100%">
       <h2 class="subtitle has-text-centered" style="margin-top: 2rem;">
         <span class="dnerf">EZPC</span> explains CLIP zero-shot predictions by projecting image and text embeddings
-        into a shared concept space, enabling concept-wise interpretability of classification decisions.
+        into a shared concept space, enabling concept-level interpretability of classification decisions.
       </h2>
     </div>
   </div>
@@ -130,10 +129,10 @@
           Large-scale vision-language models such as CLIP have achieved remarkable success in zero-shot image recognition, yet their predictions remain largely opaque to human understanding. In contrast, Concept Bottleneck Models provide interpretable intermediate representations by reasoning through human-defined concepts, but they rely on concept supervision and lack the ability to generalize to unseen classes.
           </p>
           <p>
-            We introduce <b>EZPC (pronounced "easy-peasy")</b> that bridges these two paradigms by <b>explaining CLIP’s zero-shot predictions through human-understandable concepts</b>. Our method projects CLIP’s joint image-text embeddings into a concept space learned from language descriptions, enabling faithful and transparent explanations without additional supervision. The model learns this projection via a combination of alignment and reconstruction objectives, ensuring that concept activations preserve CLIP’s semantic structure while remaining interpretable.
+            We introduce <b>EZPC (pronounced "easy-peasy")</b> that bridges these two paradigms by <b>explaining CLIP's zero-shot predictions through human-understandable concepts</b>. Our method projects CLIP's joint image-text embeddings into a concept space learned from language descriptions, enabling faithful and transparent explanations without additional supervision. The model learns this projection via a combination of alignment and reconstruction objectives, ensuring that concept activations preserve CLIP's semantic structure while remaining interpretable.
           </p>
           <p>
-            Extensive experiments on five benchmark datasets, <b>CIFAR-100, CUB-200-2011, Places365, ImageNet-100, and ImageNet-1k</b>, demonstrate that our approach maintains CLIP’s strong zero-shot classification accuracy while providing meaningful concept-level explanations. By grounding open-vocabulary predictions in explicit semantic concepts, our method offers a principled step toward interpretable and trustworthy vision-language models.
+            Extensive experiments on five benchmark datasets, <b>CIFAR-100, CUB-200-2011, Places365, ImageNet-100, and ImageNet-1k</b>, demonstrate that our approach maintains CLIP's strong zero-shot classification accuracy while providing meaningful concept-level explanations. By grounding open-vocabulary predictions in explicit semantic concepts, our method offers a principled step toward interpretable and trustworthy vision-language models.
           </p>
         </div>
       </div>
@@ -142,6 +141,9 @@
 </section>
 
 
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--                        QUANTITATIVE RESULTS                           -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -149,14 +151,14 @@
         <h2 class="title is-3">Quantitative Results</h2>
         <p class="has-text-justified" style="margin-bottom: 3rem;">
         We evaluate EZPC on five benchmark datasets (CIFAR-100, ImageNet-100, CUB, ImageNet-1k, and Places365)
-        under the generalized zero-shot setting. 
-        EZPC maintains strong performance close to CLIP while providing concept-level explanations, 
+        under the generalized zero-shot setting.
+        EZPC maintains strong performance close to CLIP while providing concept-level explanations,
         and outperforms prior explainable zero-shot methods such as Z-CBM and SpLiCE.
         These results show that projecting CLIP embeddings into a concept space preserves semantic structure
         without sacrificing accuracy.
         </p>
 
-        <div class="table-wrapper" style="display: flex; justify-content: center; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <div class="table-wrapper">
           <table class="results-table">
             <thead>
               <tr>
@@ -177,7 +179,7 @@
             </thead>
             <tbody>
               <tr class="baseline-sep">
-                <td><a href="https://arxiv.org/abs/2103.00020" target="_blank">CLIP</a></span></td>
+                <td><a href="https://arxiv.org/abs/2103.00020" target="_blank">CLIP</a></td>
                 <td>0.370</td><td>0.454</td><td>0.408</td>
                 <td class="group-sep">0.680</td><td>0.707</td><td>0.693</td>
                 <td class="group-sep">0.468</td><td>0.481</td><td>0.474</td>
@@ -185,7 +187,7 @@
                 <td class="group-sep">0.350</td><td>0.375</td><td>0.362</td>
               </tr>
               <tr>
-                <td><a href="https://arxiv.org/abs/2502.09018v1" target="_blank">Z-CBM</a></span></td>
+                <td><a href="https://arxiv.org/abs/2502.09018v1" target="_blank">Z-CBM</a></td>
                 <td>0.319</td><td>0.425</td><td>0.365</td>
                 <td class="group-sep">0.592</td><td>0.579</td><td>0.585</td>
                 <td class="group-sep">0.183</td><td>0.195</td><td>0.189</td>
@@ -193,7 +195,7 @@
                 <td class="group-sep best">0.349</td><td>0.365</td><td class="best">0.357</td>
               </tr>
               <tr>
-                <td><a href="https://arxiv.org/abs/2402.10376" target="_blank">SpLiCE</a></span></td>
+                <td><a href="https://arxiv.org/abs/2402.10376" target="_blank">SpLiCE</a></td>
                 <td>0.248</td><td>0.298</td><td>0.270</td>
                 <td class="group-sep">0.371</td><td>0.409</td><td>0.389</td>
                 <td class="group-sep">0.100</td><td>0.053</td><td>0.070</td>
@@ -211,11 +213,300 @@
             </tbody>
           </table>
           </div>
-          <p class="table-caption"><strong>Table 1.</strong> Generalized zero-shot classification accuracy (Seen, Unseen, Harmonic mean). EZPC achieves performance close to CLIP while remaining interpretable.</p>
+          <p class="table-caption"><strong>Table 1.</strong> Generalized zero-shot classification accuracy (Seen, Unseen, Harmonic mean). EZPC achieves performance close to CLIP while remaining fully interpretable, and substantially outperforms Z-CBM and SpLiCE across all datasets.</p>
       </div>
     </div>
 </section>
 
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--                     CROSS-DATASET TRANSFER                            -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Cross-Dataset Transfer</h2>
+        <p class="has-text-justified" style="margin-bottom: 2rem;">
+        We train the concept projection on ImageNet-100 and evaluate on CIFAR-100 and CUB without any fine-tuning.
+        EZPC transfers effectively across domains, maintaining performance close to CLIP on both object-centric and fine-grained datasets. This demonstrates that the learned concept space captures general visual semantics that are not dataset-specific.
+        </p>
+
+        <div class="table-wrapper">
+          <table class="results-table" style="max-width: 700px;">
+            <thead>
+              <tr>
+                <th rowspan="2">Target Dataset</th>
+                <th rowspan="2">Model</th>
+                <th colspan="2">Zero-shot</th>
+                <th colspan="3" class="group-sep">Generalized Zero-shot</th>
+              </tr>
+              <tr>
+                <th>Seen</th><th>Unseen</th>
+                <th class="group-sep">Seen</th><th>Unseen</th><th>H</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2" style="vertical-align: middle;">CIFAR-100</td>
+                <td style="text-align: center">CLIP</td>
+                <td>0.686</td><td>0.387</td>
+                <td class="group-sep">0.663</td><td>0.266</td><td>0.380</td>
+              </tr>
+              <tr class="highlight">
+                <td style="text-align: center">EZPC</td>
+                <td>0.684</td><td>0.363</td>
+                <td class="group-sep">0.659</td><td>0.296</td><td>0.409</td>
+              </tr>
+              <tr class="baseline-sep"><td colspan="7" style="padding: 0; border-bottom: 1.5px solid #d1d5db;"></td></tr>
+              <tr>
+                <td rowspan="2" style="vertical-align: middle;">CUB</td>
+                <td style="text-align: center">CLIP</td>
+                <td>0.686</td><td>0.471</td>
+                <td class="group-sep">0.617</td><td>0.458</td><td>0.526</td>
+              </tr>
+              <tr class="highlight">
+                <td style="text-align: center">EZPC</td>
+                <td>0.674</td><td>0.461</td>
+                <td class="group-sep">0.607</td><td>0.448</td><td>0.515</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-caption"><strong>Table 2.</strong> Cross-dataset transfer: projection trained on ImageNet-100, evaluated on CIFAR-100 and CUB. EZPC stays within 1-3% of CLIP without any retraining.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--                        INFERENCE TIME COMPARISON                      -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Inference Time Comparison</h2>
+        <p class="has-text-justified" style="margin-bottom: 2rem;">
+        A key advantage of EZPC is its computational efficiency. Unlike optimization-based methods (SpLiCE) or retrieval-based approaches (Z-CBM), EZPC performs a single matrix multiplication at inference time. This makes it suitable for large-scale deployment and interactive analysis.
+        </p>
+
+        <div class="table-wrapper">
+          <table class="results-table" style="max-width: 700px;">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Embedding (ms/img)</th>
+                <th>Full Pipeline (ms/img)</th>
+                <th>Overhead</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="baseline-sep">
+                <td>CLIP</td>
+                <td>0.0001 &plusmn; 0.0000</td>
+                <td>5.77 &plusmn; 0.55</td>
+                <td>1.0&times;</td>
+              </tr>
+              <tr>
+                <td>Z-CBM</td>
+                <td>97.55 &plusmn; 1.33</td>
+                <td>542.34 &plusmn; 6.02</td>
+                <td>94.0&times;</td>
+              </tr>
+              <tr>
+                <td>SpLiCE</td>
+                <td>4.50 &plusmn; 0.54</td>
+                <td>338.51 &plusmn; 4.39</td>
+                <td>58.7&times;</td>
+              </tr>
+              <tr class="highlight">
+                <td>EZPC</td>
+                <td>0.0006 &plusmn; 0.0000</td>
+                <td>5.90 &plusmn; 0.73</td>
+                <td>&sim;1.0&times;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-caption"><strong>Table 3.</strong> Inference time on ImageNet-100 (NVIDIA H100 GPU). EZPC adds only ~0.1 ms per image over CLIP, while Z-CBM and SpLiCE are 94&times; and 59&times; slower respectively.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--                   FAITHFULNESS & CAUSAL VALIDATION                    -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-bottom: 3rem;">Faithfulness &amp; Causal Validation</h2>
+        <img src="./static/images/intervention_analysis.png" alt="Intervention Analysis" width="60%">
+        <p class="has-text-justified" style="margin-bottom: 2rem;">
+        Are EZPC's explanations faithful? We test this by ablating the top-<i>n</i> most influential concepts and measuring the effect on predictions. If the identified concepts are causally responsible, removing them should degrade model confidence.
+        </p>
+
+        <div class="columns" style="margin-bottom: 1rem;">
+          <div class="column">
+            <div class="table-wrapper">
+              <table class="results-table" style="max-width: 350px;">
+                <thead>
+                  <tr>
+                    <th>Top-<i>n</i></th>
+                    <th>Logit Drop</th>
+                    <th>Flip Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>0.0306</td>
+                    <td>0.059</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>0.0816</td>
+                    <td>0.099</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>0.1263</td>
+                    <td>0.132</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>0.2256</td>
+                    <td>0.169</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-caption"><strong>Table 4a.</strong> Logit drop and prediction flip rate increase monotonically with <i>n</i>, confirming causal involvement of top-ranked concepts.</p>
+          </div>
+
+          <div class="column">
+            <div class="table-wrapper">
+              <table class="results-table" style="max-width: 380px;">
+                <thead>
+                  <tr>
+                    <th>Removal Type</th>
+                    <th>Flip Count</th>
+                    <th>Flip Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Top-10 concepts</td>
+                    <td>845</td>
+                    <td>0.169</td>
+                  </tr>
+                  <tr>
+                    <td>Random-10 concepts</td>
+                    <td>70</td>
+                    <td>0.014</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-caption"><strong>Table 4b.</strong> Removing the top-10 concepts flips predictions 12&times; more often than removing 10 random concepts, confirming that explanations reflect true causal structure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--                      BACKBONE ABLATION                                -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Backbone Sensitivity</h2>
+        <p class="has-text-justified" style="margin-bottom: 2rem;">
+        EZPC is backbone-agnostic. We evaluate it across four CLIP/SigLIP architectures of increasing capacity. Larger backbones consistently improve both zero-shot and generalized zero-shot performance, showing that the concept-based decomposition scales naturally with model capacity.
+        </p>
+
+        <div class="table-wrapper">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th rowspan="2">Backbone</th>
+                <th rowspan="2">Variant</th>
+                <th colspan="2">Zero-shot</th>
+                <th colspan="3" class="group-sep">Generalized Zero-shot</th>
+              </tr>
+              <tr>
+                <th>Seen</th><th>Unseen</th>
+                <th class="group-sep">Seen</th><th>Unseen</th><th>H</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2" style="vertical-align: middle;">CLIP RN50</td>
+                <td style="text-align: center">Base</td>
+                <td>0.706</td><td>0.855</td>
+                <td class="group-sep">0.680</td><td>0.707</td><td>0.693</td>
+              </tr>
+              <tr class="highlight">
+                <td style="text-align: center">EZPC</td>
+                <td>0.699</td><td>0.851</td>
+                <td class="group-sep">0.675</td><td>0.690</td><td>0.682</td>
+              </tr>
+              <tr class="baseline-sep"><td colspan="7" style="padding: 0; border-bottom: 1px solid #e5e7eb;"></td></tr>
+              <tr>
+                <td rowspan="2" style="vertical-align: middle;">CLIP ViT-B/32</td>
+                <td style="text-align: center">Base</td>
+                <td>0.729</td><td>0.887</td>
+                <td class="group-sep">0.703</td><td>0.715</td><td>0.709</td>
+              </tr>
+              <tr class="highlight">
+                <td style="text-align: center">EZPC</td>
+                <td>0.724</td><td>0.879</td>
+                <td class="group-sep">0.694</td><td>0.716</td><td>0.705</td>
+              </tr>
+              <tr class="baseline-sep"><td colspan="7" style="padding: 0; border-bottom: 1px solid #e5e7eb;"></td></tr>
+              <tr>
+                <td rowspan="2" style="vertical-align: middle;">CLIP ViT-L/14</td>
+                <td style="text-align: center">Base</td>
+                <td>0.839</td><td>0.925</td>
+                <td class="group-sep">0.821</td><td>0.836</td><td>0.828</td>
+              </tr>
+              <tr class="highlight">
+                <td style="text-align: center">EZPC</td>
+                <td>0.832</td><td>0.924</td>
+                <td class="group-sep">0.812</td><td>0.831</td><td>0.822</td>
+              </tr>
+              <tr class="baseline-sep"><td colspan="7" style="padding: 0; border-bottom: 1px solid #e5e7eb;"></td></tr>
+              <tr>
+                <td rowspan="2" style="vertical-align: middle;">SigLIP ViT-SO400M/14</td>
+                <td style="text-align: center">Base</td>
+                <td>0.882</td><td>0.972</td>
+                <td class="group-sep">0.871</td><td>0.889</td><td>0.880</td>
+              </tr>
+              <tr class="highlight">
+                <td style="text-align: center">EZPC</td>
+                <td>0.880</td><td>0.972</td>
+                <td class="group-sep">0.870</td><td>0.886</td><td>0.878</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-caption"><strong>Table 5.</strong> Backbone ablation on ImageNet-100. EZPC consistently retains near-baseline performance across all architectures, with stronger backbones yielding higher absolute accuracy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--                        QUALITATIVE RESULTS                            -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -223,86 +514,97 @@
         <h2 class="title is-3">Qualitative Results</h2>
 
         <p class="has-text-justified" style="margin-bottom: 3rem;">
-        We present qualitative examples illustrating the interpretability of EZPC. The visualizations illustrate explanations for individual predictions, class-level concept statistics, and the structure of the learned concept space. These results demonstrate that EZPC provides faithful and human-understandable explanations while preserving the semantic behavior of CLIP.
+        We present qualitative results demonstrating EZPC's interpretability at multiple levels: per-image concept explanations, class-level concept distributions, concept-based image retrieval, and spatial grounding of concepts in image regions.
         </p>
 
-        <!-- Image carousel 1-->
+        <!-- Image carousel 1 -->
             <div class="container">
-              <div id="results-carousel" class="carousel results-carousel">
+              <div id="carousel-img-level" class="carousel results-carousel">
               <div class="item">
-                <!-- Your image here -->
                 <img src="static/images/img_level1.png" alt="Image-level Analysis"/>
               </div>
               <div class="item">
-                <!-- Your image here -->
                 <img src="static/images/img_level2.png" alt="Image-level Analysis"/>
               </div>
               <div class="item">
-                <!-- Your image here -->
                 <img src="static/images/img_level3.png" alt="Image-level Analysis"/>
               </div>
             </div>
           </div>
-        <!-- End image carousel 1-->
         <p class="has-text-centered" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
-        <b>Figure 1.</b> Image-level explanations showing the most contributing concepts for each prediction.
+        <b>Figure 1. Image-level explanations:</b> for each prediction, EZPC reveals the top contributing concepts and their activation scores, showing which human-understandable attributes drive CLIP's decision.
         </p>
 
         <hr>
 
-        <!-- Image carousel 2-->
+        <!-- Image carousel 2 -->
           <div class="container">
-            <div id="results-carousel" class="carousel results-carousel">
+            <div id="carousel-class-level" class="carousel results-carousel">
               <div class="item">
-                <!-- Your image here -->
                 <img src="static/images/class_level1.png" alt="Class-level Analysis"/>
               </div>
               <div class="item">
-                <!-- Your image here -->
                 <img src="static/images/class_level2.png" alt="Class-level Analysis"/>
               </div>
               <div class="item">
-                <!-- Your image here -->
                 <img src="static/images/class_level3.png" alt="Class-level Analysis"/>
               </div>
             </div>
           </div>
-        <!-- End image carousel 2-->
         <p class="has-text-centered" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
-        <b>Figure 2.</b> Class-level concept distributions across multiple samples.
+        <b>Figure 2. Class-level concept distributions:</b> aggregated concept activations across all images of a class, showing which concepts consistently characterize each category.
         </p>
 
         <hr>
 
-        <!-- Image carousel 3-->
+        <!-- Image carousel 3 -->
           <div class="container">
-            <div id="results-carousel" class="carousel results-carousel">
+            <div id="carousel-clustering" class="carousel results-carousel">
               <div class="item">
-                <!-- Your image here -->
                 <img src="static/images/clustering1.png" alt="Concept Clustering"/>
               </div>
               <div class="item">
-                <!-- Your image here -->
                 <img src="static/images/clustering2.png" alt="Concept Clustering"/>
               </div>
               <div class="item">
-                <!-- Your image here -->
                 <img src="static/images/clustering3.png" alt="Concept Clustering"/>
               </div>
             </div>
           </div>
-        <!-- End image carousel 3-->
         <p class="has-text-centered" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
-        <b>Figure 3.</b> Concept clustering in the learned concept space, showing semantic grouping without image supervision.
+        <b>Figure 3. Concept clustering:</b> for each concept, we retrieve the images with the highest activation scores, showing that learned concepts capture coherent visual patterns across diverse images.
         </p>
-                    
+
+        <hr>
+
+        <!-- Image carousel 4 -->
+          <div class="container" style="max-width: 80%;">
+            <div id="carousel-region" class="carousel results-carousel">
+              <div class="item">
+                <img src="static/images/region_concept_alignment1.png" alt="Region-level Concept Alignment"/>
+              </div>
+              <div class="item">
+                <img src="static/images/region_concept_alignment2.png" alt="Region-level Concept Alignment"/>
+              </div>
+              <div class="item">
+                <img src="static/images/region_concept_alignment3.png" alt="Region-level Concept Alignment"/>
+              </div>
+            </div>
+          </div>
+        <p class="has-text-centered" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+        <b>Figure 4. Concept-region alignment:</b> spatial heatmaps showing where each concept activates in the image, demonstrating that EZPC grounds its explanations in semantically meaningful regions.
+        </p>
+
         </div>
       </div>
     </div>
   </section>
 
 
-<section class="section">
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!--                         ACKNOWLEDGMENTS                               -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -337,7 +639,7 @@
       <div class="column is-8">
         <div class="content">
         <p>
-     		  This website is modified from <a href="https://github.com/nerfies/nerfies.github.io"> Nerfies</a>. 
+     		  This website is modified from <a href="https://github.com/nerfies/nerfies.github.io"> Nerfies</a>.
         </p>
         </div>
       </div>
@@ -348,13 +650,21 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  var carousels = bulmaCarousel.attach('#results-carousel', {
-    slidesToScroll: 1,
-    slidesToShow: 1,
-    loop: true,
-    autoplay: false,
-    navigation: true,
-    pagination: true,
+  var carouselIds = [
+    '#carousel-img-level',
+    '#carousel-class-level',
+    '#carousel-clustering',
+    '#carousel-region'
+  ];
+  carouselIds.forEach(function(id) {
+    bulmaCarousel.attach(id, {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      loop: true,
+      autoplay: false,
+      navigation: true,
+      pagination: true,
+    });
   });
 });
 </script>
