@@ -1,0 +1,15 @@
+# Social/profile links rendered as icons on the about page.
+# Order in this file determines display order. Comment out anything you don't use.
+
+email: onat.ozdemir@ed.ac.uk
+scholar_userid: oMY3mpoAAAAJ
+github_username: oonat
+linkedin_username: onat-ozdemir
+rss_icon: false
+
+# Optional — add when you have profiles:
+# orcid_id:
+# semanticscholar_id:
+# dblp_url:
+# x_username:
+# bluesky_url:
