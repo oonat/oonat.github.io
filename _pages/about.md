@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Student · <a href="https://www.ed.ac.uk/informatics" target="_blank">School of Informatics, University of Edinburgh</a>
+subtitle: PhD Student · School of Informatics, University of Edinburgh
 
 profile:
   align: right

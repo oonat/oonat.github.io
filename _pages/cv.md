@@ -15,7 +15,7 @@ nav_order: 3
 </p>
 
 <iframe
-  src="{{ '/assets/pdf/cv.pdf' | relative_url }}#view=FitH"
+  src="{{ '/assets/pdf/cv.pdf' | relative_url }}#view=FitH&pagemode=none"
   title="Onat Özdemir — CV"
   width="100%"
   height="900"
