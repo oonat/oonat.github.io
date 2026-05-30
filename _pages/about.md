@@ -7,7 +7,7 @@ subtitle: PhD Student · School of Informatics, University of Edinburgh
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false
+  image_circular: true
   more_info: >
     <p>Informatics Forum</p>
     <p>10 Crichton Street</p>
