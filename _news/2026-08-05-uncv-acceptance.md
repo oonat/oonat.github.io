@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 *A Systematic Comparison of Training Objectives for Out-of-Distribution Detection in Image Classification* accepted at UnCV @ ECCV 2026.
+🎉 *A Systematic Comparison of Training Objectives for Out-of-Distribution Detection in Image Classification* accepted at **UnCV @ ECCV 2026**.
